@@ -626,6 +626,147 @@ abstract class _ProfilesSelectorState implements ProfilesSelectorState {
 }
 
 /// @nodoc
+mixin _$NetworkDetectionState {
+  bool get isTesting => throw _privateConstructorUsedError;
+  IpInfo? get ipInfo => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $NetworkDetectionStateCopyWith<NetworkDetectionState> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $NetworkDetectionStateCopyWith<$Res> {
+  factory $NetworkDetectionStateCopyWith(NetworkDetectionState value,
+          $Res Function(NetworkDetectionState) then) =
+      _$NetworkDetectionStateCopyWithImpl<$Res, NetworkDetectionState>;
+  @useResult
+  $Res call({bool isTesting, IpInfo? ipInfo});
+}
+
+/// @nodoc
+class _$NetworkDetectionStateCopyWithImpl<$Res,
+        $Val extends NetworkDetectionState>
+    implements $NetworkDetectionStateCopyWith<$Res> {
+  _$NetworkDetectionStateCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? isTesting = null,
+    Object? ipInfo = freezed,
+  }) {
+    return _then(_value.copyWith(
+      isTesting: null == isTesting
+          ? _value.isTesting
+          : isTesting // ignore: cast_nullable_to_non_nullable
+              as bool,
+      ipInfo: freezed == ipInfo
+          ? _value.ipInfo
+          : ipInfo // ignore: cast_nullable_to_non_nullable
+              as IpInfo?,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$NetworkDetectionStateImplCopyWith<$Res>
+    implements $NetworkDetectionStateCopyWith<$Res> {
+  factory _$$NetworkDetectionStateImplCopyWith(
+          _$NetworkDetectionStateImpl value,
+          $Res Function(_$NetworkDetectionStateImpl) then) =
+      __$$NetworkDetectionStateImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({bool isTesting, IpInfo? ipInfo});
+}
+
+/// @nodoc
+class __$$NetworkDetectionStateImplCopyWithImpl<$Res>
+    extends _$NetworkDetectionStateCopyWithImpl<$Res,
+        _$NetworkDetectionStateImpl>
+    implements _$$NetworkDetectionStateImplCopyWith<$Res> {
+  __$$NetworkDetectionStateImplCopyWithImpl(_$NetworkDetectionStateImpl _value,
+      $Res Function(_$NetworkDetectionStateImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? isTesting = null,
+    Object? ipInfo = freezed,
+  }) {
+    return _then(_$NetworkDetectionStateImpl(
+      isTesting: null == isTesting
+          ? _value.isTesting
+          : isTesting // ignore: cast_nullable_to_non_nullable
+              as bool,
+      ipInfo: freezed == ipInfo
+          ? _value.ipInfo
+          : ipInfo // ignore: cast_nullable_to_non_nullable
+              as IpInfo?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$NetworkDetectionStateImpl implements _NetworkDetectionState {
+  const _$NetworkDetectionStateImpl(
+      {required this.isTesting, required this.ipInfo});
+
+  @override
+  final bool isTesting;
+  @override
+  final IpInfo? ipInfo;
+
+  @override
+  String toString() {
+    return 'NetworkDetectionState(isTesting: $isTesting, ipInfo: $ipInfo)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$NetworkDetectionStateImpl &&
+            (identical(other.isTesting, isTesting) ||
+                other.isTesting == isTesting) &&
+            (identical(other.ipInfo, ipInfo) || other.ipInfo == ipInfo));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, isTesting, ipInfo);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$NetworkDetectionStateImplCopyWith<_$NetworkDetectionStateImpl>
+      get copyWith => __$$NetworkDetectionStateImplCopyWithImpl<
+          _$NetworkDetectionStateImpl>(this, _$identity);
+}
+
+abstract class _NetworkDetectionState implements NetworkDetectionState {
+  const factory _NetworkDetectionState(
+      {required final bool isTesting,
+      required final IpInfo? ipInfo}) = _$NetworkDetectionStateImpl;
+
+  @override
+  bool get isTesting;
+  @override
+  IpInfo? get ipInfo;
+  @override
+  @JsonKey(ignore: true)
+  _$$NetworkDetectionStateImplCopyWith<_$NetworkDetectionStateImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$ApplicationSelectorState {
   String? get locale => throw _privateConstructorUsedError;
   ThemeMode? get themeMode => throw _privateConstructorUsedError;

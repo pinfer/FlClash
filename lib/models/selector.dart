@@ -42,6 +42,15 @@ class ProfilesSelectorState with _$ProfilesSelectorState {
 }
 
 @freezed
+class NetworkDetectionState with _$NetworkDetectionState {
+  const factory NetworkDetectionState({
+    required bool isTesting,
+    required IpInfo? ipInfo,
+  }) = _NetworkDetectionState;
+}
+
+
+@freezed
 class ApplicationSelectorState with _$ApplicationSelectorState {
   const factory ApplicationSelectorState({
     required String? locale,
