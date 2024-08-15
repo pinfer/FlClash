@@ -13,20 +13,6 @@ typedef OnSelected = void Function(int index);
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
-  _navigationBarContainer({
-    required BuildContext context,
-    required Widget child,
-  }) {
-    // if (!system.isDesktop) return child;
-    return Container(
-      padding: const EdgeInsets.all(16).copyWith(
-        right: 0,
-      ),
-      color: context.colorScheme.surface,
-      child: child,
-    );
-  }
-
   _getNavigationBar({
     required BuildContext context,
     required ViewMode viewMode,
@@ -74,7 +60,7 @@ class HomePage extends StatelessWidget {
           .toList(),
       onDestinationSelected: globalState.appController.toPage,
       extended: extended,
-      minExtendedWidth: 200,
+      minExtendedWidth: 175,
       selectedIndex: currentIndex,
       labelType: extended
           ? NavigationRailLabelType.none

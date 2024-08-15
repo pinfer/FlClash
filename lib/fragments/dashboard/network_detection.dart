@@ -40,11 +40,15 @@ class _NetworkDetectionState extends State<NetworkDetection> {
       cancelToken = null;
     }
     cancelToken = CancelToken();
-    final ipInfo = await request.checkIp(cancelToken: cancelToken);
-    networkDetectionState.value = networkDetectionState.value.copyWith(
-      isTesting: false,
-      ipInfo: ipInfo,
-    );
+    try {
+      final ipInfo = await request.checkIp(cancelToken: cancelToken);
+      networkDetectionState.value = networkDetectionState.value.copyWith(
+        isTesting: false,
+        ipInfo: ipInfo,
+      );
+    } catch (_) {
+
+    }
   }
 
   _checkIpContainer(Widget child) {
