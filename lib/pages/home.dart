@@ -48,56 +48,33 @@ class HomePage extends StatelessWidget {
       );
     }
     final extended = viewMode == ViewMode.desktop;
-    return _navigationBarContainer(
-      context: context,
-      child: NavigationRail(
-        groupAlignment: -0.8,
-        selectedIconTheme: IconThemeData(
-          color: context.colorScheme.onSurfaceVariant,
-        ),
-        unselectedIconTheme: IconThemeData(
-          color: context.colorScheme.onSurfaceVariant,
-        ),
-        selectedLabelTextStyle: context.textTheme.labelLarge!.copyWith(
-          color: context.colorScheme.onSurface,
-        ),
-        unselectedLabelTextStyle: context.textTheme.labelLarge!.copyWith(
-          color: context.colorScheme.onSurface,
-        ),
-        destinations: navigationItems
-            .map(
-              (e) => NavigationRailDestination(
-                icon: e.icon,
-                label: Text(
-                  Intl.message(e.label),
-                ),
-              ),
-            )
-            .toList(),
-        onDestinationSelected: globalState.appController.toPage,
-        extended: extended,
-        minExtendedWidth: 200,
-        selectedIndex: currentIndex,
-        labelType: extended
-            ? NavigationRailLabelType.none
-            : NavigationRailLabelType.selected,
-      ),
-    );
     return NavigationRail(
-      groupAlignment: -0.95,
+      backgroundColor: context.colorScheme.surfaceContainer,
+      selectedIconTheme: IconThemeData(
+        color: context.colorScheme.onSurfaceVariant,
+      ),
+      unselectedIconTheme: IconThemeData(
+        color: context.colorScheme.onSurfaceVariant,
+      ),
+      selectedLabelTextStyle: context.textTheme.labelLarge!.copyWith(
+        color: context.colorScheme.onSurface,
+      ),
+      unselectedLabelTextStyle: context.textTheme.labelLarge!.copyWith(
+        color: context.colorScheme.onSurface,
+      ),
       destinations: navigationItems
           .map(
             (e) => NavigationRailDestination(
-              icon: e.icon,
-              label: Text(
-                Intl.message(e.label),
-              ),
-            ),
-          )
+          icon: e.icon,
+          label: Text(
+            Intl.message(e.label),
+          ),
+        ),
+      )
           .toList(),
       onDestinationSelected: globalState.appController.toPage,
       extended: extended,
-      minExtendedWidth: 172,
+      minExtendedWidth: 200,
       selectedIndex: currentIndex,
       labelType: extended
           ? NavigationRailLabelType.none
