@@ -188,7 +188,7 @@ class _WindowHeaderState extends State<WindowHeader> {
         ),
         IconButton(
           onPressed: () {
-            windowManager.close();
+            globalState.appController.handleBackOrExit();
           },
           icon: const Icon(Icons.close),
         ),
