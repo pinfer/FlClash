@@ -34,37 +34,51 @@ class HomePage extends StatelessWidget {
       );
     }
     final extended = viewMode == ViewMode.desktop;
-    return NavigationRail(
-      backgroundColor: context.colorScheme.surfaceContainer,
-      selectedIconTheme: IconThemeData(
-        color: context.colorScheme.onSurfaceVariant,
-      ),
-      unselectedIconTheme: IconThemeData(
-        color: context.colorScheme.onSurfaceVariant,
-      ),
-      selectedLabelTextStyle: context.textTheme.labelLarge!.copyWith(
-        color: context.colorScheme.onSurface,
-      ),
-      unselectedLabelTextStyle: context.textTheme.labelLarge!.copyWith(
-        color: context.colorScheme.onSurface,
-      ),
-      destinations: navigationItems
-          .map(
-            (e) => NavigationRailDestination(
-          icon: e.icon,
-          label: Text(
-            Intl.message(e.label),
+    return LayoutBuilder(
+      builder: (_, container) {
+        return Material(
+          color: context.colorScheme.surfaceContainer,
+          child: SizedBox(
+            height: container.maxHeight,
+            child: SingleChildScrollView(
+              child: IntrinsicHeight(
+                child: NavigationRail(
+                  backgroundColor: context.colorScheme.surfaceContainer,
+                  selectedIconTheme: IconThemeData(
+                    color: context.colorScheme.onSurfaceVariant,
+                  ),
+                  unselectedIconTheme: IconThemeData(
+                    color: context.colorScheme.onSurfaceVariant,
+                  ),
+                  selectedLabelTextStyle: context.textTheme.labelLarge!.copyWith(
+                    color: context.colorScheme.onSurface,
+                  ),
+                  unselectedLabelTextStyle: context.textTheme.labelLarge!.copyWith(
+                    color: context.colorScheme.onSurface,
+                  ),
+                  destinations: navigationItems
+                      .map(
+                        (e) => NavigationRailDestination(
+                      icon: e.icon,
+                      label: Text(
+                        Intl.message(e.label),
+                      ),
+                    ),
+                  )
+                      .toList(),
+                  onDestinationSelected: globalState.appController.toPage,
+                  extended: extended,
+                  minExtendedWidth: 175,
+                  selectedIndex: currentIndex,
+                  labelType: extended
+                      ? NavigationRailLabelType.none
+                      : NavigationRailLabelType.selected,
+                ),
+              ),
+            ),
           ),
-        ),
-      )
-          .toList(),
-      onDestinationSelected: globalState.appController.toPage,
-      extended: extended,
-      minExtendedWidth: 175,
-      selectedIndex: currentIndex,
-      labelType: extended
-          ? NavigationRailLabelType.none
-          : NavigationRailLabelType.selected,
+        );
+      },
     );
   }
 
