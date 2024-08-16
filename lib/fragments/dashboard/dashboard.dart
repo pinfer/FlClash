@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:fl_clash/fragments/dashboard/intranet_ip.dart';
+import 'package:fl_clash/fragments/dashboard/proxy_switch.dart';
 import 'package:fl_clash/models/models.dart';
 import 'package:flutter/material.dart';
 import 'package:fl_clash/widgets/widgets.dart';
@@ -28,7 +29,9 @@ class _DashboardFragmentState extends State<DashboardFragment> {
       child: Align(
         alignment: Alignment.topCenter,
         child: SingleChildScrollView(
-          padding: const EdgeInsets.all(16),
+          padding: const EdgeInsets.all(16).copyWith(
+            bottom: 88,
+          ),
           child: Selector<AppState, double>(
             selector: (_, appState) => appState.viewWidth,
             builder: (_, viewWidth, ___) {
@@ -50,6 +53,10 @@ class _DashboardFragmentState extends State<DashboardFragment> {
                   GridItem(
                     crossAxisCellCount: 4,
                     child: NetworkDetection(),
+                  ),
+                  GridItem(
+                    crossAxisCellCount: 4,
+                    child: ProxySwitch(),
                   ),
                   GridItem(
                     crossAxisCellCount: 4,

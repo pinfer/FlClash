@@ -28,7 +28,7 @@ class OutboundMode extends StatelessWidget {
           onPressed: () {},
           info: Info(
             label: appLocalizations.outboundMode,
-            iconData: Icons.call_split,
+            iconData: Icons.call_split_sharp,
           ),
           child: Padding(
             padding: const EdgeInsets.only(bottom: 16),

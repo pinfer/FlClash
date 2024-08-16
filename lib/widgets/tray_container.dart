@@ -32,11 +32,11 @@ class _TrayContainerState extends State<TrayContainer> with TrayListener {
 
   _updateOtherTray() async {
     if (isTrayInit == false) {
-      await trayManager.setIcon(
-        other.getTrayIconPath(),
-      );
       await trayManager.setToolTip(
         appName,
+      );
+      await trayManager.setIcon(
+        other.getTrayIconPath(),
       );
       isTrayInit = true;
     }
