@@ -1,5 +1,7 @@
+import 'dart:io';
 import 'dart:math';
 
+import 'package:fl_clash/common/common.dart';
 import 'package:fl_clash/fragments/dashboard/intranet_ip.dart';
 import 'package:fl_clash/fragments/dashboard/proxy_switch.dart';
 import 'package:fl_clash/models/models.dart';
@@ -41,28 +43,39 @@ class _DashboardFragmentState extends State<DashboardFragment> {
                 crossAxisCount: max(4 * ((viewWidth / 350).ceil()), 8),
                 crossAxisSpacing: 16,
                 mainAxisSpacing: 16,
-                children: const [
-                  GridItem(
+                children: [
+                  const GridItem(
                     crossAxisCellCount: 8,
                     child: NetworkSpeed(),
                   ),
-                  GridItem(
+                  if (Platform.isAndroid)
+                    const GridItem(
+                      crossAxisCellCount: 4,
+                      child: VPNSwitch(),
+                    ),
+                  if (system.isDesktop) ...[
+                    const GridItem(
+                      crossAxisCellCount: 4,
+                      child: TUNSwitch(),
+                    ),
+                    const GridItem(
+                      crossAxisCellCount: 4,
+                      child: ProxySwitch(),
+                    ),
+                  ],
+                  const GridItem(
                     crossAxisCellCount: 4,
                     child: OutboundMode(),
                   ),
-                  GridItem(
+                  const GridItem(
                     crossAxisCellCount: 4,
                     child: NetworkDetection(),
                   ),
-                  GridItem(
-                    crossAxisCellCount: 4,
-                    child: ProxySwitch(),
-                  ),
-                  GridItem(
+                  const GridItem(
                     crossAxisCellCount: 4,
                     child: TrafficUsage(),
                   ),
-                  GridItem(
+                  const GridItem(
                     crossAxisCellCount: 4,
                     child: IntranetIP(),
                   ),
